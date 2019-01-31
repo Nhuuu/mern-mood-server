@@ -1,6 +1,7 @@
-var mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose');
 
-var userSchema = new mongoose.Schema({
+const userSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -22,14 +23,28 @@ var userSchema = new mongoose.Schema({
   }
 });
 
-// TODO: Override 'toJSON' to prevent the password from being returned with the user
+// Override 'toJSON' to prevent the password from being returned with the user
+userSchema.set('toJSON', {
+  transform: (doc, user) => {
+    const userJson = {
+      id: user._id,
+      email: user.email,
+      name: user.name
+    }
+    return userJson;
+  }
+});
 
+// A helper function to authenticate with bcrypt
+userSchema.methods.isAuthenticated = function(password){
+  return bcrypt.compareSync(password, this.password)
+}
 
-// TODO: A helper function to authenticate with bcrypt
-
-
-// TODO: Find out Mongoose's version of a beforeCreate hook
-
+// Find out Mongoose's version of a beforeCreate hook; use to hash password
+userSchema.pre('save', function(next){
+  this.password = bcrypt.hashSync(this.password, 12)
+  next()
+})
 
 // Exporting the User model
 module.exports = mongoose.model('User', userSchema);

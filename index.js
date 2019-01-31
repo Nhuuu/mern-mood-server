@@ -1,6 +1,7 @@
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
+const expressJwt = require('express-jwt');
 const favicon = require('serve-favicon');
 const logger = require('morgan');
 const path = require('path');
@@ -26,11 +27,16 @@ function fromRequest(req){
 }
 
 // Controllers
-// TODO: Ensure all auth routes are protected except for
+// Ensure all auth routes are protected except for
 // POST to /auth/login and /auth/signup
 // Remember to pass the JWT_SECRET to ExpressJWT (it will break without it!)
 // NOTE on ExpressJWT: The unless portion is only needed if you need exceptions
-app.use('/auth', require('./controllers/auth'));
+app.use('/auth', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest 
+}).unless({
+	path: [{ url: '/auth/login', methods: ['POST'] }, { url: '/auth/signup', methods: ['POST'] }]
+}), require('./controllers/auth'));
 
 // This is the catch-all route. Ideally you don't get here unless you made a mistake on your front-end
 app.get('*', function(req, res, next) {
