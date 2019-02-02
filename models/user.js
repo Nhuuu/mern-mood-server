@@ -20,7 +20,17 @@ const userSchema = new mongoose.Schema({
     required: true,
     minlength: 6,
     maxlength: 99
-  }
+  },
+  location: {
+    type: String,
+    required: true,
+    minlength: 1,
+    maxlength: 99
+  },
+  myanswer: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Answer',
+  }]
 });
 
 // Override 'toJSON' to prevent the password from being returned with the user
@@ -29,7 +39,8 @@ userSchema.set('toJSON', {
     const userJson = {
       id: user._id,
       email: user.email,
-      name: user.name
+      name: user.name,
+      location: user.location
     }
     return userJson;
   }
