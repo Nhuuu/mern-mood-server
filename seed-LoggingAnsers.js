@@ -1,13 +1,12 @@
 const db = require('./models');
 
-db.User.create({
-  name: 'Tester1',
-  email: 'tester1@test.com',
-  password: '12345678',
-  location: 'seattle',
-  myanswer: null
+db.User.findOne({
+  // Simulating (currentUser) scenario
+  // where 'Tester1' is assumed as exiting and logged in
+  name: 'Tester1' 
   })
   .then(result => {
+    // User submits 3 answers and logs the results to userId in User DB
     db.Answer.create({
       score: 5,
       category: 'mental',
@@ -17,9 +16,9 @@ db.User.create({
       category: 'phyical',
       userId: result._id
   }, {
-    score: 1,
-    category: 'emotional',
-    userId: result._id
+      score: 1,
+      category: 'emotional',
+      userId: result._id
 })
   .then(result => {
     console.log('successfully created Logged Answers');

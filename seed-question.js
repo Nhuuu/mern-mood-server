@@ -2,15 +2,24 @@
 const db = require('./models');
 
   db.Question.create({
-      mental: { 
-          question: "How do you feel today?",
-          question: "How are you today?",
-    },
-    physical: { 
-      question: "How do you feel today?",
-      question: "How are you today?",
-}   
-})
+    question: {
+      mental: [
+        {question: "Sample Question 1"},
+        {question: "Sample Question 2"}
+        //add questions here in same format as above
+      ],
+      physical: [
+        {question: "Sample Question 1"},
+        {question: "Sample Question 2"}
+        //add questions here in same format as above
+      ],
+      emotional: [
+        {question: "Sample Question 1"},
+        {question: "Sample Question 2"}
+        //add questions here in same format as above
+      ]
+    }
+  })
   .then(result => {
     console.log('successfully created Logged Questions');
     process.exit();
