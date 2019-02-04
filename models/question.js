@@ -25,9 +25,11 @@ const emotionalSchema = new mongoose.Schema({
 });
 
 const questionSchema = new mongoose.Schema({
+  question: {
     mental: [mentalSchema],
     physical: [physicalSchema],
     emotional: [emotionalSchema],
+  }
 });
 
 module.exports = mongoose.model('Question', questionSchema);
