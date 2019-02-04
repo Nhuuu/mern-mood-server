@@ -1,7 +1,7 @@
 // Require Mongoose node module
 const mongoose = require('mongoose');
 
-// Questino Schema
+// Question Schema
 const answerSchema = new mongoose.Schema({
   score: Number,
   category: String,
