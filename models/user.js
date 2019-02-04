@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     minlength: 1,
     maxlength: 99
   },
-  email: { // TODO: Need to add email validation
+  email: { 
     type: String,
     required: true,
     unique: true,

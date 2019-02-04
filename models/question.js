@@ -1,17 +1,33 @@
-// Require Mongoose node module
 const mongoose = require('mongoose');
 
-// Questino Schema
-const questionSchema = new mongoose.Schema({
+const mentalSchema = new mongoose.Schema({
   question: {
     type: String,
-    required: true
-  },
-  category: {
-    type: String,
-    required: true
+    minlength: 1,
+    maxlength: 99
   }
-})
+});
 
-// TODO: Export Museum Model
-module.exports = mongoose.model('Question', questionSchema); 
+const physicalSchema = new mongoose.Schema({
+  question: {
+    type: String,
+    minlength: 1,
+    maxlength: 99
+  }
+});
+
+const emotionalSchema = new mongoose.Schema({
+  question: {
+    type: String,
+    minlength: 1,
+    maxlength: 99
+  }
+});
+
+const questionSchema = new mongoose.Schema({
+    mental: [mentalSchema],
+    physical: [physicalSchema],
+    emotional: [emotionalSchema],
+});
+
+module.exports = mongoose.model('Question', questionSchema);
