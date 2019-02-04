@@ -18,9 +18,13 @@ db.Museum.create({
     creator: {
       firstname: 'Leonardo',
       lastname: 'da Vinci',
+      firstName: 'Leonardo',
+      lastName: 'da Vinci',
       image: 'http://www.leonardodavinci.net/images/leonardo-da-vinci.jpg',
       birthyear: 1452,
       deathyear: 1519
+      birthYear: 1452,
+      deathYear: 1519
     }
   })
   .then(result => {
@@ -34,5 +38,4 @@ db.Museum.create({
 .catch(err => {
   console.log('Error Message', err);
 });
-
 // process.exit();

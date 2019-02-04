@@ -3,17 +3,14 @@ const mongoose = require('mongoose');
 
 // Questino Schema
 const answerSchema = new mongoose.Schema({
-  score: {
-    type: Number,
-    required: true
-  },
-  category: {
-    type: String,
-    required: true
+  score: Number,
+  category: String,
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   },
   average: Number,
+  timestamp: { type: Date, default: Date.now},
 })
 
-module.exports = mongoose.model('Answer', answerSchema); 
-
-// Need to add association
+module.exports = mongoose.model('Answer', answerSchema);
