@@ -2,7 +2,10 @@ require('dotenv').config();
 const request = require('request');
 const express = require('express');
 const router = express.Router();
-const db = require('../models');
+
+// yelp
+const yelp = require('yelp-fusion')
+const client = yelp.client(process.env.yelpKey);
 
 
 router.get('/', (req, res)=> {
@@ -18,6 +21,24 @@ router.get('/weather', (req, res)=>{
 })
 
 // write API call for YELP API call
-
+router.get('/restaurant', (req, res)=>{
+    client.search({
+        term: 'food', //not sure what we want this to be
+        // latitude: // we could just use a "location:" depends how specific we want to get.
+        // longitude:
+        location: 'seattle, wa',
+        limit: 10,
+        open_now: true
+    })
+    .then((data)=>{
+        var results = JSON.parse(data.body)
+        var businesses = results.businesses //JSON.parse(data.body.businesses)
+        console.log(businesses)
+        res.send(businesses)
+    })
+    .catch((error)=>{
+        console.log('ERROR!', error);
+    })
+})
 
 module.exports = router
