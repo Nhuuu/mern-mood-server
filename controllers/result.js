@@ -28,7 +28,7 @@ router.get('/restaurant', (req, res)=>{
         term: 'food', //not sure what we want this to be
         // latitude: // we could just use a "location:" depends how specific we want to get.
         // longitude:
-        location: foundUser.location,
+        location: 'Seattle, WA',
         limit: 10,
         open_now: true
     })
