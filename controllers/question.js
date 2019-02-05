@@ -1,12 +1,12 @@
 require('dotenv').config();
 const express = require('express');
 const router = express.Router();
-const db = require('./models');
+const db = require('../models');
 
 // Route to get questions from questions DB
 // The returned object will consist of JSON body with objects Mental, Physical, Emotional and array of questions for each
 router.get('/', (req, res)=> {
-    db.Questions.find()
+    db.Question.find()
     .then(results => {
         console.log('RESULTS SENT TO FRONT END', results)
         res.status(302).send(results)
