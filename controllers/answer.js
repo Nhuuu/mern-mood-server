@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require('../models');
 
 // POST route to record to the database the answers for each question
-router.post('/user/:id', (req, res)=>{
+router.post('/user/:id', (req, res) => {
     db.User.findOne({
         _id: req.user.id
     })
@@ -15,7 +15,7 @@ router.post('/user/:id', (req, res)=>{
             userId: foundUser._id
         })
         .then(answerRecorded => {
-            console.log('answer has been recorded');
+            console.log('answer has been recorded', answerRecorded);
             //TODO: route them back to the profile or the results mood page
         })
         .catch(error => {
@@ -23,7 +23,7 @@ router.post('/user/:id', (req, res)=>{
             res.status(500).send('Database error')
         })
     })
-    .catch(error=>{
+    .catch(error => {
         console.log('ERROR FINDING USER', error);
         res.status(404).send('USER NOT FOUND')
     })
