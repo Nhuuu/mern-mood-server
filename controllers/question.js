@@ -3,13 +3,9 @@ const express = require('express');
 const router = express.Router();
 const db = require('./models');
 
-router.get('/', (req, res)=> {
-    res.send('Questions STUB Route')
-})
-
 // Route to get questions from questions DB
 // The returned object will consist of JSON body with objects Mental, Physical, Emotional and array of questions for each
-router.get('/question', (req, res)=>{
+router.get('/', (req, res)=> {
     db.Questions.find()
     .then(results => {
         console.log('RESULTS SENT TO FRONT END', results)
@@ -20,6 +16,5 @@ router.get('/question', (req, res)=>{
         res.status(500).send('DATABASE ERROR')
     })
 })
-
 
 module.exports = router;
