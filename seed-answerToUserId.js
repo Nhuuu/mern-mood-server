@@ -3,7 +3,7 @@ const db = require('./models');
 db.User.findOne({
   // Simulating (currentUser) scenario
   // where 'Tester1' is assumed as exiting and logged in
-  name: 'Tester1' 
+  name: 'test1' 
   })
   .then(result => {
     // User submits 3 answers and logs the results to userId in User DB
