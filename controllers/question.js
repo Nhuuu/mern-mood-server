@@ -7,15 +7,19 @@ router.get('/', (req, res)=> {
     res.send('Questions STUB Route')
 })
 
-// TODO: Route to get questions from questions DB
-router.post('/question', (req, res)=>{
-    // db.question
-        // then mental
-            // then physical
-                // then compliation of questions
-            // catch
-        // catch
-    // catch
+// Route to get questions from questions DB
+// The returned object will consist of JSON body with objects Mental, Physical, Emotional and array of questions for each
+router.get('/question', (req, res)=>{
+    db.Questions.find()
+    .then(results => {
+        console.log('RESULTS SENT TO FRONT END', results)
+        res.status(302).send(results)
+    })
+    .catch(error => {
+        console.log('ERROR FETCHING QUESTIONS FROM SERVER', error)
+        res.status(500).send('DATABASE ERROR')
+    })
 })
+
 
 module.exports = router;
