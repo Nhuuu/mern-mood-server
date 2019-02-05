@@ -13,10 +13,11 @@ router.get('/question', (req, res)=>{
     db.Questions.find()
     .then(results => {
         console.log('RESULTS SENT TO FRONT END', results)
-        res.send(results)
+        res.status(302).send(results)
     })
     .catch(error => {
         console.log('ERROR FETCHING QUESTIONS FROM SERVER', error)
+        res.status(500).send('DATABASE ERROR')
     })
 })
 
