@@ -16,8 +16,9 @@ router.get('/', (req, res)=> {
 // testing the API request call for darksky
 router.get('/weather', (req, res)=>{
 	request('https://api.darksky.net/forecast/2931a90b9260455bec5edfa409bf0bc0/47.6062,-122.3321', function(error, response, body) {
-		console.log("body:", body)
-		res.send(body)
+        let results = JSON.parse(body)
+        res.send(results)
+        console.log(results)
 	})
 })
 
@@ -26,8 +27,6 @@ router.get('/restaurant', (req, res)=>{
     console.log(req.user)
     client.search({
         term: 'food', //not sure what we want this to be
-        // latitude: // we could just use a "location:" depends how specific we want to get.
-        // longitude:
         location: 'Seattle, WA',
         limit: 10,
         open_now: true
