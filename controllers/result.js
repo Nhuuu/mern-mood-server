@@ -51,8 +51,15 @@ router.post('/restaurant', (req, res)=>{
 
 
 /// TODO: write spotify route
-router.post('/music', (req, res) => {
-    console.log('rou')
+router.get('/music', (req, res) => {
+    spotify.search({ type: 'track', query: 'All the Small Things' })
+    .then(response => {
+        console.log(response);
+        res.send(response);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 })
 
 module.exports = router
