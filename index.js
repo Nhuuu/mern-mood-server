@@ -38,18 +38,9 @@ app.use('/auth', expressJwt({
 	path: [{ url: '/auth/login', methods: ['POST'] }, { url: '/auth/signup', methods: ['POST'] }]
 }), require('./controllers/auth'));
 
-app.use('/profile', expressJwt({
-	secret: process.env.JWT_SECRET,
-	getToken: fromRequest 
-}), require('./controllers/profile'));
-app.use('/result', expressJwt({
-	secret: process.env.JWT_SECRET,
-	getToken: fromRequest 
-}), require('./controllers/result'));
-app.use('/question', expressJwt({
-	secret: process.env.JWT_SECRET,
-	getToken: fromRequest 
-}), require('./controllers/question'));
+app.use('/profile', require('./controllers/profile'));
+app.use('/result', require('./controllers/result'));
+app.use('/question', require('./controllers/question'));
 
 
 // This is the catch-all route. Ideally you don't get here unless you made a mistake on your front-end

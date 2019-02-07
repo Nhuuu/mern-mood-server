@@ -31,8 +31,7 @@ router.get('/weather', (req, res)=>{
 })
 
 // write API call for YELP API call
-router.post('/restaurant', (req, res)=>{
-    console.log(req.body)
+router.get('/restaurant', (req, res)=>{
     client.search({
         term: 'food', //not sure what we want this to be
         location: 'Seattle, WA', // protect the route
