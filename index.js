@@ -41,6 +41,7 @@ app.use('/auth', expressJwt({
 app.use('/profile', require('./controllers/profile'));
 app.use('/result', require('./controllers/result'));
 app.use('/question', require('./controllers/question'));
+app.use('/answer', require('./controllers/answer'));
 
 
 // This is the catch-all route. Ideally you don't get here unless you made a mistake on your front-end
