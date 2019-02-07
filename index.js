@@ -39,7 +39,10 @@ app.use('/auth', expressJwt({
 }), require('./controllers/auth'));
 
 app.use('/profile', require('./controllers/profile'));
-app.use('/result', require('./controllers/result'));
+app.use('/result', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest 
+}), require('./controllers/result'));
 app.use('/question', require('./controllers/question'));
 
 

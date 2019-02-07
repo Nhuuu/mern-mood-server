@@ -71,7 +71,8 @@ router.post('/signup', (req, res) => {
 // This is what is returned when client queries for new user data
 router.post('/current/user', (req, res) => {
 	// TODO: Remove this console.log when not needed anymore
-  	console.log('GET /auth/current/user STUB');
+	  console.log('GET /auth/current/user STUB');
+	  console.log(req.user.location)
 
   	if(!req.user || !req.user.id){
   		return res.status(401).send({ user: null });
