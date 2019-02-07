@@ -5,7 +5,7 @@ const db = require('../models');
 
 // Route to get questions from questions DB
 // The returned object will consist of JSON body with objects Mental, Physical, Emotional and array of questions for each
-router.get('/', (req, res)=> {
+router.post('/', (req, res)=> {
     db.Question.find()
     .then(results => {
         res.status(302).send(results)
