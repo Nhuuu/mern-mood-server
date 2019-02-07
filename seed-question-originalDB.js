@@ -2,6 +2,7 @@
 const db = require('./models');
 
   db.Question.create({
+    question:{
       mental: [
         {question: "Sample Question 1"},
         {question: "Sample Question 2"}
@@ -17,7 +18,7 @@ const db = require('./models');
         {question: "Sample Question 2"}
         //add questions here in same format as above
       ]
-
+    }
   })
   .then(result => {
     console.log('successfully created Logged Questions');
