@@ -50,7 +50,7 @@ router.post('/restaurant', (req, res)=>{
 })
 
 
-/// TODO: write spotify route
+/// write spotify route
 router.get('/music', (req, res) => {
     spotify.search({ type: 'track', query: 'All the Small Things' })
     .then(response => {
