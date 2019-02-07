@@ -19,7 +19,9 @@ app.use(express.urlencoded({extended: false}));
 // Helper function: This allows our server to parse the incoming token from the client
 // This is being run as middleware, so it has access to the incoming request
 function fromRequest(req){
-  if(req.body.headers.Authorization &&
+  console.log('hello', req.body);
+  if(req.body.headers &&
+    req.body.headers.Authorization &&
     req.body.headers.Authorization.split(' ')[0] === 'Bearer'){
     return req.body.headers.Authorization.split(' ')[1];
   }
@@ -33,15 +35,27 @@ function fromRequest(req){
 // NOTE on ExpressJWT: The unless portion is only needed if you need exceptions
 app.use('/auth', expressJwt({
 	secret: process.env.JWT_SECRET,
-	getToken: fromRequest 
+	getToken: fromRequest
 }).unless({
 	path: [{ url: '/auth/login', methods: ['POST'] }, { url: '/auth/signup', methods: ['POST'] }]
 }), require('./controllers/auth'));
 
-app.use('/profile', require('./controllers/profile'));
-app.use('/result', require('./controllers/result'));
-app.use('/question', require('./controllers/question'));
-app.use('/answer', require('./controllers/answer'));
+app.use('/profile', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest
+}), require('./controllers/profile'));
+app.use('/result', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest
+}), require('./controllers/result'));
+app.use('/question', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest
+}), require('./controllers/question'));
+app.use('/answer', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest
+}), require('./controllers/answer'));
 
 
 // This is the catch-all route. Ideally you don't get here unless you made a mistake on your front-end
