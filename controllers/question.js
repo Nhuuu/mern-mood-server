@@ -8,7 +8,6 @@ const db = require('../models');
 router.get('/', (req, res)=> {
     db.Question.find()
     .then(results => {
-        console.log('RESULTS SENT TO FRONT END', results)
         res.status(302).send(results)
     })
     .catch(error => {

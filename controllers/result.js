@@ -26,7 +26,6 @@ router.post('/weather', (req, res) =>{
 	request('https://api.darksky.net/forecast/2931a90b9260455bec5edfa409bf0bc0/47.6062,-122.3321', function(error, response, body) {
         let results = JSON.parse(body)
         res.send(results)
-        console.log(results)
 	})
 })
 
