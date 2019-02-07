@@ -19,6 +19,7 @@ app.use(express.urlencoded({extended: false}));
 // Helper function: This allows our server to parse the incoming token from the client
 // This is being run as middleware, so it has access to the incoming request
 function fromRequest(req){
+  console.log('hello', req.body);
   if(req.body.headers &&
     req.body.headers.Authorization &&
     req.body.headers.Authorization.split(' ')[0] === 'Bearer'){
