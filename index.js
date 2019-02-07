@@ -48,7 +48,10 @@ app.use('/result', expressJwt({
 	secret: process.env.JWT_SECRET,
 	getToken: fromRequest
 }), require('./controllers/result'));
-app.use('/question', require('./controllers/question'));
+app.use('/question', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest
+}), require('./controllers/question'));
 app.use('/answer', expressJwt({
 	secret: process.env.JWT_SECRET,
 	getToken: fromRequest
