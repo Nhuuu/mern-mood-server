@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 // testing the API request call for darksky
 router.post('/weather', (req, res) =>{
     // TODO: convert location to geocode
-	request('https://api.darksky.net/forecast/2931a90b9260455bec5edfa409bf0bc0/47.6062,-122.3321', function(error, response, body) {
+	request('https://api.darksky.net/forecast/5bfb31dba2eeeb679c6c5d5485e31c0f/47.6062,-122.3321', function(error, response, body) {
         let results = JSON.parse(body)
         res.send(results)
 	})

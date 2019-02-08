@@ -19,11 +19,6 @@ const db = require('./models');
         //add questions here in same format as above
       ]
     }
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 64ac8a3c6ee0bd47fe9124857e072c05dfc4d29f
   })
   .then(result => {
     console.log('successfully created Logged Questions');
