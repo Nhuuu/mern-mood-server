@@ -11,4 +11,5 @@ mongoose.set('useCreateIndex', true);
 module.exports.User = require('./user');
 module.exports.Answer = require('./answer');
 module.exports.Question = require('./question');
-module.exports.Yougotit = require('./yougotit');
+module.exports.Sayingnorm = require('./sayingnorm');
+module.exports.Sayingvulgar = require('./sayingvulgar');
