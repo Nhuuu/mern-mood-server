@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require('../models');
 
 // POST route to record to the database the answers for each question
-router.post('/user/:id', (req, res) => {
+router.post('/user/userId', (req, res) => {
     db.User.findOne({
         _id: req.params.id
     })
@@ -30,7 +30,7 @@ router.post('/user/:id', (req, res) => {
     })
 })
 
-router.post('/score/:id', (req, res) => {
+router.post('/score/userId', (req, res) => {
     db.Answer.find({
         userId: req.params.id,
         timestamp : { 
