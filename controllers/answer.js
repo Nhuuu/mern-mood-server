@@ -6,7 +6,7 @@ const db = require('../models');
 // POST route to record to the database the answers for each question
 router.post('/user/:id', (req, res) => {
     db.User.findOne({
-        userId: req.params.id
+        _id: req.params.id
     })
     .then(foundUser => {
         console.log(req.body)
