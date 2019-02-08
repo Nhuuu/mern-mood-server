@@ -6,7 +6,7 @@ const db = require('../models');
 // POST route to record to the database the answers for each question
 router.post('/user/:id', (req, res) => {
     db.User.findOne({
-        _id: req.params.id
+        userId: req.params.id
     })
     .then(foundUser => {
         console.log(req.body)
@@ -29,5 +29,23 @@ router.post('/user/:id', (req, res) => {
         res.status(404).send('USER NOT FOUND')
     })
 })
+
+router.post('/score/:id', (req, res) => {
+    db.Answer.find({
+        userId: req.params.id,
+        timestamp : { 
+        $lt: new Date(), 
+        $gte: new Date(new Date().setDate(new Date().getDate()-1))
+        }
+    })
+    .then(foundAnswers => {
+        console.log(foundAnswers)
+        res.send(foundAnswers)
+    })
+    .catch(error => {
+        console.log('ERROR RETRIEVING THE USER\'s SCORE', error)
+    })
+})
+
 
 module.exports = router;
