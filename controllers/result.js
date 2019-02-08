@@ -12,7 +12,7 @@ const client = yelp.client(process.env.yelpKey);
 const spotify = new Spotify({
     id: process.env.SPOTIFY_API_KEY,
     secret: process.env.SPOTIFY_CLIENT_SECRET
-  });
+});
 
 
 router.get('/', (req, res) => {
@@ -46,7 +46,6 @@ router.post('/restaurant', (req, res) => {
         console.log('ERROR!', error);
     })
 })
-
 
 /// write spotify route
 router.get('/music', (req, res) => {

@@ -16,7 +16,7 @@ router.post('/user/:id', (req, res) => {
         })
         .then(answerRecorded => {
             console.log('answer has been recorded', answerRecorded);
-            //TODO: route them back to the profile or the results mood page
+            res.send(answerRecorded);
         })
         .catch(error => {
             console.log('ERROR RECORDING ANSWERS', error)
