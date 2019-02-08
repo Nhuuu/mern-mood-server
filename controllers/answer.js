@@ -6,9 +6,10 @@ const db = require('../models');
 // POST route to record to the database the answers for each question
 router.post('/user/userId', (req, res) => {
     db.User.findOne({
-        userId: req.params.id
+        _id: req.params.id
     })
     .then(foundUser => {
+        console.log(req.body)
         db.Answer.create({
             score: req.body.score,
             category: req.body.category, // this is from the form with a hidden input of what category the question is coming from

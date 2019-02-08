@@ -48,7 +48,7 @@ router.post('/restaurant', (req, res) => {
 })
 
 /// write spotify route
-router.get('/music', (req, res) => {
+router.post('/music', (req, res) => {
     spotify.search({ type: 'track', query: 'All the Small Things' })
     .then(response => {
         console.log(response);
