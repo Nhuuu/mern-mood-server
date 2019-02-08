@@ -12,7 +12,7 @@ const client = yelp.client(process.env.yelpKey);
 const spotify = new Spotify({
     id: process.env.SPOTIFY_API_KEY,
     secret: process.env.SPOTIFY_CLIENT_SECRET
-  });
+});
 
 
 router.get('/', (req, res) => {
@@ -47,7 +47,6 @@ router.post('/restaurant', (req, res) => {
     })
 })
 
-
 /// write spotify route
 router.post('/music', (req, res) => {
     spotify.search({ type: 'track', query: 'All the Small Things' })
@@ -64,7 +63,7 @@ router.post('/music', (req, res) => {
 router.post('/giphy/:currently', (req, res) =>{
     console.log(req.params.currently);
     // TODO: convert location to geocode
-	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key=ArocmtVIdN2ZQ9VUpVoz1K6nc52AAy5m', function(error, response, body) {
+	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key=dcrysk5UJk2aYk5WsyrZAhk4H5R6Z6uQ', function(error, response, body) {
         res.send(body)
         
 	})
