@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const db = require('../models');
+const request = require('request');
 
 // Route to get questions from questions DB
 // The returned object will consist of JSON body with objects Mental, Physical, Emotional and array of questions for each
@@ -15,5 +16,7 @@ router.post('/', (req, res)=> {
         res.status(500).send('DATABASE ERROR')
     })
 })
+
+
 
 module.exports = router;

@@ -60,4 +60,13 @@ router.get('/music', (req, res) => {
     });
 })
 
+// Adding an API call for giphy by weather
+router.post('/giphy/:currently', (req, res) =>{
+    // TODO: convert location to geocode
+	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key=' + process.env.giphy_api_key, function(error, response, body) {
+        let results = JSON.parse(body)
+        res.send(results)
+	})
+})
+
 module.exports = router
