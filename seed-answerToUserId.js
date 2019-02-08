@@ -8,18 +8,9 @@ db.User.findOne({
   .then(result => {
     // User submits 3 answers and logs the results to userId in User DB
     db.Answer.create({
-      score: 5,
-      category: 'mental',
+      score: 6,
       userId: result._id
-  }, {
-      score: 9,
-      category: 'phyical',
-      userId: result._id
-  }, {
-      score: 1,
-      category: 'emotional',
-      userId: result._id
-})
+  })
   .then(result => {
     console.log('successfully created Logged Answers');
     process.exit();
