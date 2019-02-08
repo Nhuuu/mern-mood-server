@@ -2,21 +2,24 @@
 const db = require('./models');
 
   db.Question.create({
+    question:{
       mental: [
-        {question: "Sample Question 1"},
-        {question: "Sample Question 2"}
+        {question: "Mental Question 1"},
+        {question: "Mental Question 2"}
         //add questions here in same format as above
       ],
       physical: [
-        {question: "Sample Question 1"},
-        {question: "Sample Question 2"}
+        {question: "Physical Question 1"},
+        {question: "Physical Question 2"}
         //add questions here in same format as above
       ],
       emotional: [
-        {question: "Sample Question 1"},
-        {question: "Sample Question 2"}
+        {question: "Emotional Question 1"},
+        {question: "Emotional Question 2"}
         //add questions here in same format as above
       ]
+    }
+
 
   })
   .then(result => {

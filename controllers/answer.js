@@ -9,6 +9,7 @@ router.post('/user/:id', (req, res) => {
         _id: req.params.id
     })
     .then(foundUser => {
+        console.log(req.body)
         db.Answer.create({
             score: req.body.score,
             category: req.body.category, // this is from the form with a hidden input of what category the question is coming from
