@@ -80,7 +80,7 @@ const partlycloudynightSchema = new mongoose.Schema({
   }
 });
 
-const yougotthisSchema = new mongoose.Schema({
+const sayingnormSchema = new mongoose.Schema({
   output: {
     clearday: [cleardaySchema],
     clearnight: [clearnightSchema],
@@ -95,4 +95,4 @@ const yougotthisSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Yougotit', yougotthisSchema);
+module.exports = mongoose.model('Sayingnorm', sayingnormSchema);

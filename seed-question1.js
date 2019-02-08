@@ -1,7 +1,7 @@
 const db = require('./models');
 
-db.Question1.create({
-    mental: [
+db.Moodquestion.create({
+    questions: [
       {question: "Sample Question 1"},
       {question: "Sample Question 2"}
       //add questions here in same format as above

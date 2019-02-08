@@ -1,6 +1,6 @@
 const db = require('./models');
 
-  db.Yougotit.create({
+  db.Sayingvulgar.create({
     output:{
       clearday: [
         {output: "Sample output 1"},
