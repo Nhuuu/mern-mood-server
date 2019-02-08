@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
 // testing the API request call for darksky
 router.post('/weather', (req, res) =>{
     // TODO: convert location to geocode
-	request('https://api.darksky.net/forecast/2931a90b9260455bec5edfa409bf0bc0/47.6062,-122.3321', function(error, response, body) {
+	request('https://api.darksky.net/forecast/5bfb31dba2eeeb679c6c5d5485e31c0f/47.6062,-122.3321', function(error, response, body) {
         let results = JSON.parse(body)
         res.send(results)
 	})
@@ -64,7 +64,7 @@ router.get('/music', (req, res) => {
 router.post('/giphy/:currently', (req, res) =>{
     console.log(req.params.currently);
     // TODO: convert location to geocode
-	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key=ArocmtVIdN2ZQ9VUpVoz1K6nc52AAy5m', function(error, response, body) {
+	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key=dcrysk5UJk2aYk5WsyrZAhk4H5R6Z6uQ', function(error, response, body) {
         res.send(body)
         
 	})
