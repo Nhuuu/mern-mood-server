@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require('../models');
 
 // POST route to record to the database the answers for each question
-router.post('/user/userId', (req, res) => {
+router.post('/user/:id', (req, res) => {
     db.User.findOne({
         _id: req.params.id
     })
@@ -12,7 +12,6 @@ router.post('/user/userId', (req, res) => {
         console.log(req.body)
         db.Answer.create({
             score: req.body.score,
-            category: req.body.category, // this is from the form with a hidden input of what category the question is coming from
             userId: foundUser._id
         })
         .then(answerRecorded => {
@@ -30,9 +29,9 @@ router.post('/user/userId', (req, res) => {
     })
 })
 
-router.post('/score/userId', (req, res) => {
+router.post('/score/:userId', (req, res) => {
     db.Answer.find({
-        userId: req.params.id,
+        userId: req.params.userId,
         timestamp : { 
         $lt: new Date(), 
         $gte: new Date(new Date().setDate(new Date().getDate()-1))
