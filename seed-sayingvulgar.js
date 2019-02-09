@@ -1,56 +1,40 @@
 const db = require('./models');
 
-  db.Sayingnorm.create({
+  db.Sayingvulgar.create({
     output:{
       clearday: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "It’s so fucking clear outside that I can already see me winning"},
+        {output: "Who needs morphine when you got weather like this!"}
       ],
       clearnight: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "It’s so fucking clear outside that I can already see me winning"}
       ],
       rain: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "It’s fucking rainy outside right now, But YOU GOT THIS!"},
+        {output: "You need a fucking umbrella -ella -ella -ella"},
+        {output: "I’d rather catch a grenade than be in this fucking rain"}
       ],
       snow: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "It’s colder than a room full of girls who you like but don’t like you back"},
+        {output: "It’s so fucking nippy outside. Throw on a sweater and you’re golden bro."}
       ],
       sleet: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "Fucking Sleet"}
       ],
       wind: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "Fucking Windy"}
       ],
       fog: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "Fog is like M.A.T.H. -Mental Abuse To Humans"}
       ],
       cloudy: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "Fucking Cloudy"}
       ],
       partlycloudyday: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "Pretty fucking cloudy out there"}
       ],
       partlycloudynight: [
-        {output: "Sample output 1"},
-        {output: "Sample output 2"} //this will be profanity
-        //add outputs here in same format as above
+        {output: "Pretty fucking cloudy out there"}
       ],
 
     }
