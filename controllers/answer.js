@@ -29,9 +29,9 @@ router.post('/user/:id', (req, res) => {
     })
 })
 
-router.post('/score/:userId', (req, res) => {
+router.post('/score/', (req, res) => {
     db.Answer.find({
-        userId: req.params.userId,
+        userId: req.user.id,
         timestamp : { 
         $lt: new Date(), 
         $gte: new Date(new Date().setDate(new Date().getDate()-1))

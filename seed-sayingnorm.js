@@ -1,6 +1,6 @@
 const db = require('./models');
 
-  db.Sayingvulgar.create({
+  db.Sayingnorm.create({
     output:{
       clearday: [
         {output: "It’s clear that you should go frolic in the field like a gazelle"}
@@ -9,7 +9,7 @@ const db = require('./models');
         {output: "It’s clear that you should go frolic in the field like a gazelle"}
       ],
       rain: [
-        {output: "Is it raining outside or is bucket size water dropping? Either way grab a baseball bat and practice that baseball swing Slugger!"},
+        {output: "Is it raining outside or is bucket size water dropping? Either way grab a baseball bat Slugger!"},
         {output: "Rain drops so huge, you could freeze it and make igloos"},
         {output: "Have you ever played in the rain? You would totally win!"} //this will be profanity
         //add outputs here in same format as above
