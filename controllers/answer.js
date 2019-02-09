@@ -8,7 +8,7 @@ router.post('/user/:id', (req, res) => {
     db.User.findOne({
         _id: req.params.id
     })
-    .then(foundUser => {cd 
+    .then(foundUser => {
         console.log(req.body)
         db.Answer.create({
             score: req.body.score,
