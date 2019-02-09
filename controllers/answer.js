@@ -30,7 +30,7 @@ router.post('/user/userId', (req, res) => {
     })
 })
 
-router.post('/score/userId', (req, res) => {
+router.post('/score/:userId', (req, res) => {
     db.Answer.find({
         userId: req.params.id,
         timestamp : { 
