@@ -5,6 +5,7 @@ const router = express.Router();
 const db = require('../models');
 const yelp = require('yelp-fusion')
 
+const client = yelp.client(process.env.yelpKey);
 
 router.get('/', (req, res) => {
     res.send('This is the result STUB')
