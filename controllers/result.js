@@ -4,15 +4,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../models');
 const yelp = require('yelp-fusion')
-const Spotify = require('node-spotify-api');
-
-
-// clients
-const client = yelp.client(process.env.yelpKey);
-const spotify = new Spotify({
-    id: process.env.SPOTIFY_API_KEY,
-    secret: process.env.SPOTIFY_CLIENT_SECRET
-});
 
 
 router.get('/', (req, res) => {
@@ -45,18 +36,6 @@ router.post('/restaurant', (req, res) => {
     .catch((error) => {
         console.log('ERROR!', error);
     })
-})
-
-/// write spotify route
-router.post('/music', (req, res) => {
-    spotify.search({ type: 'track', query: 'All the Small Things' })
-    .then(response => {
-        console.log(response);
-        res.send(response);
-    })
-    .catch(err => {
-        console.log(err);
-    });
 })
 
 // Adding an API call for giphy by weather

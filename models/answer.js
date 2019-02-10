@@ -1,7 +1,6 @@
 // Require Mongoose node module
 const mongoose = require('mongoose');
 
-// Question Schema
 const answerSchema = new mongoose.Schema({
   score: Number,
   userId: {
