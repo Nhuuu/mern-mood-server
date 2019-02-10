@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const router = express.Router();
 const db = require('../models');
 
+
 // POST /auth/login route - returns a JWT
 router.post('/login', (req, res) => {
 	console.log('In the POST /auth/login route');
@@ -38,10 +39,6 @@ router.post('/login', (req, res) => {
 
 // POST /auth/signup route - create a user in the DB and then log them in
 router.post('/signup', (req, res) => {
-	// TODO: Debug statements; remove when no longer needed!
-	console.log('In the POST /auth/signup route');
-	console.log(req.body);
-
 	db.User.findOne({ email: req.body.email })
 	.then(user => {
 		if(user){
@@ -70,9 +67,6 @@ router.post('/signup', (req, res) => {
 
 // This is what is returned when client queries for new user data
 router.post('/current/user', (req, res) => {
-	// TODO: Remove this console.log when not needed anymore
-	  console.log('GET /auth/current/user STUB');
-
   	if(!req.user || !req.user.id){
   		return res.status(401).send({ user: null });
   	}
