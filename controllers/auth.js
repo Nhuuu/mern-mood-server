@@ -3,9 +3,7 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 const db = require('../models');
-const cors = require('cors');
 
-app.use(cors());
 
 // POST /auth/login route - returns a JWT
 router.post('/login', (req, res) => {
