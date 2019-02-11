@@ -1,6 +1,6 @@
 const db = require('./models');
 
-  db.Sayingvulgar.create({
+  db.Sayingnorm.create({
     output:{
       clearday: [
         {output: "It’s clear that you should go frolic in the field like a gazelle"}
