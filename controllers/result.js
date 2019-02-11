@@ -1,6 +1,7 @@
 require('dotenv').config();
 const request = require('request');
 const express = require('express');
+var geocoder = require('simple-geocoder');
 const router = express.Router();
 const db = require('../models');
 const yelp = require('yelp-fusion')
@@ -14,10 +15,24 @@ router.get('/', (req, res) => {
 // TODO: PROTECT THE ROUTES SO THAT USER INFO CAN GET PASSED TO THE BACKEND
 // testing the API request call for darksky
 router.post('/weather', (req, res) =>{
-    // TODO: convert location to geocode
-	request('https://api.darksky.net/forecast/5bfb31dba2eeeb679c6c5d5485e31c0f/47.6062,-122.3321', function(error, response, body) {
-        let results = JSON.parse(body)
-        res.send(results)
+    geocoder.geocode(req.user.location, function(success, locations){
+		console.log(locations);
+		if(success){
+			var lng = locations.x;
+			var lat = locations.y;
+			console.log("Location: ", locations.x, locations.y);
+			var urlToCall = process.env.DARK_SKY_BASE_URL + lat.toString() + ',' + lng.toString();
+			console.log('url IS', urlToCall)
+			request(urlToCall, function(error, response, body){
+				if(error){
+					console.log('Error:', success, location);
+					res.render('error');
+				} else {
+					var results = JSON.parse(body);
+					res.send(results);
+				}
+			});
+		}
 	})
 })
 

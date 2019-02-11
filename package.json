@@ -23,6 +23,7 @@
     "node-spotify-api": "^1.0.7",
     "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
+    "simple-geocoder": "^0.1.2",
     "yelp-fusion": "^2.2.1"
   }
 }
