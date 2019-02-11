@@ -16,17 +16,14 @@ router.get('/', (req, res) => {
 // testing the API request call for darksky
 router.post('/weather', (req, res) =>{
     geocoder.geocode(req.user.location, function(success, locations){
-		console.log(locations);
 		if(success){
 			var lng = locations.x;
 			var lat = locations.y;
-			console.log("Location: ", locations.x, locations.y);
 			var urlToCall = process.env.DARK_SKY_BASE_URL + lat.toString() + ',' + lng.toString();
-			console.log('url IS', urlToCall)
 			request(urlToCall, function(error, response, body){
 				if(error){
 					console.log('Error:', success, location);
-					res.render('error');
+					res.send('error');
 				} else {
 					var results = JSON.parse(body);
 					res.send(results);
