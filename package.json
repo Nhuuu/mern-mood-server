@@ -19,7 +19,7 @@
     "hoek": "^4.2.1",
     "jsonwebtoken": "^8.2.1",
     "mongoose": "^5.2.14",
-    "morgan": "~1.9.0",
+    "morgan": "^1.9.1",
     "node-spotify-api": "^1.0.7",
     "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
