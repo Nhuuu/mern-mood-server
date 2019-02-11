@@ -61,4 +61,15 @@ router.post('/giphy/:currently', (req, res) =>{
 	})
 })
 
+// Retrieve the sayings from the database
+router.post('/saying', (req, res) => {
+    db.Sayingnorm.find()
+    .then(results => {
+        res.send(results)
+    })
+    .catch(error => {
+        console.log('ERROR RETRIEVING SAYING', error)
+    })
+})
+
 module.exports = router
