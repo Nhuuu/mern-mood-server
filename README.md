@@ -1,5 +1,5 @@
 # Summary
- A full-stack MERN app. Dashboard that alters the background with the current weather of the user's location and provides randomized entertainment output. Original concept consisted of 3 randomized questions to analyze the user's mood and provide a results page with conditional entertainment output based on the analysis. Due to time constraints, 
+ A full-stack MERN app. Dashboard that alters the background with the current weather of the user's location and provides randomized entertainment output. Original concept consisted of 3 randomized questions to analyze the user's mood and provide a results page with conditional entertainment output based on the analysis. 
 
 # Technologies Used
 * Mongodb

@@ -55,7 +55,7 @@ router.post('/restaurant', (req, res) => {
 router.post('/giphy/:currently', (req, res) =>{
     console.log(req.params.currently);
     // TODO: convert location to geocode
-	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key=dcrysk5UJk2aYk5WsyrZAhk4H5R6Z6uQ', function(error, response, body) {
+	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key='+ process.env.GIPHY_API_KEY, function(error, response, body) {
         res.send(body)
         
 	})
