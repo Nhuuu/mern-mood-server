@@ -44,19 +44,26 @@ app.use('/profile', expressJwt({
 	secret: process.env.JWT_SECRET,
 	getToken: fromRequest
 }), require('./controllers/profile'));
+
 app.use('/result', expressJwt({
 	secret: process.env.JWT_SECRET,
 	getToken: fromRequest
 }), require('./controllers/result'));
+
 app.use('/question', expressJwt({
 	secret: process.env.JWT_SECRET,
 	getToken: fromRequest
 }), require('./controllers/question'));
+
 app.use('/answer', expressJwt({
 	secret: process.env.JWT_SECRET,
 	getToken: fromRequest
 }), require('./controllers/answer'));
 
+app.use('/newresult', expressJwt({
+	secret: process.env.JWT_SECRET,
+	getToken: fromRequest
+}), require('./controllers/newresult'));
 
 // This is the catch-all route. Ideally you don't get here unless you made a mistake on your front-end
 app.get('*', function(req, res, next) {
