@@ -28,7 +28,7 @@ router.post('/weather', (req, res) =>{
 					var results = JSON.parse(body);
 					res.send(results);
 				}
-			});
+			})
 		}
 	})
 })
@@ -56,7 +56,6 @@ router.post('/giphy/:currently', (req, res) =>{
     console.log(req.params.currently);
 	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key='+ process.env.GIPHY_API_KEY, function(error, response, body) {
         res.send(body)
-        
 	})
 })
 
