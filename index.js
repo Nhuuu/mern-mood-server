@@ -60,10 +60,10 @@ app.use('/answer', expressJwt({
 	getToken: fromRequest
 }), require('./controllers/answer'));
 
-app.use('/newresult', expressJwt({
+app.use('/result', expressJwt({
 	secret: process.env.JWT_SECRET,
 	getToken: fromRequest
-}), require('./controllers/newresult'));
+}), require('./controllers/result'));
 
 // This is the catch-all route. Ideally you don't get here unless you made a mistake on your front-end
 app.get('*', function(req, res, next) {

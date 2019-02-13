@@ -4,7 +4,7 @@ const express = require('express');
 var geocoder = require('simple-geocoder');
 const router = express.Router();
 const db = require('../models');
-const yelp = require('yelp-fusion')
+const yelp = require('yelp-fusion');
 
 const client = yelp.client(process.env.yelpKey);
 
@@ -12,8 +12,8 @@ router.get('/', (req, res) => {
     res.send('This is the result STUB')
 })
 
-// TODO: PROTECT THE ROUTES SO THAT USER INFO CAN GET PASSED TO THE BACKEND
-// testing the API request call for darksky
+
+// API request call for darksky
 router.post('/weather', (req, res) =>{
     geocoder.geocode(req.user.location, function(success, locations){
 		if(success){
@@ -36,7 +36,7 @@ router.post('/weather', (req, res) =>{
 // write API call for YELP API call
 router.post('/restaurant', (req, res) => {
     client.search({
-        term: 'food', //not sure what we want this to be
+        term: 'food', 
         location: req.user.location,
         limit: 10,
         open_now: true
@@ -51,10 +51,9 @@ router.post('/restaurant', (req, res) => {
     })
 })
 
-// Adding an API call for giphy by weather
+// Adding an API call for giphy
 router.post('/giphy/:currently', (req, res) =>{
     console.log(req.params.currently);
-    // TODO: convert location to geocode
 	request('http://api.giphy.com/v1/gifs/search?q=' + req.params.currently + '&api_key='+ process.env.GIPHY_API_KEY, function(error, response, body) {
         res.send(body)
         

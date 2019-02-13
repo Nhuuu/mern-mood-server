@@ -31,11 +31,7 @@ router.post('/user/:id', (req, res) => {
 
 router.post('/score', (req, res) => {
     db.Answer.find({
-        userId: req.user.id,
-        // timestamp : { 
-        // $lt: new Date(), 
-        // $gte: new Date(new Date().setDate(new Date().getDate()-1))
-        // }
+        userId: req.user.id
     })
     .then(foundAnswers => {
         console.log(foundAnswers)
