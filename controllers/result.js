@@ -38,7 +38,7 @@ router.post('/restaurant', (req, res) => {
     client.search({
         term: 'food', //not sure what we want this to be
         location: req.user.location,
-        limit: 1,
+        limit: 10,
         open_now: true
     })
     .then((data) => {
